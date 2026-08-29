@@ -18,7 +18,7 @@
 
 ## Δομή
 
-Αυτόνομο αρχείο HTML (`index.html`) — καμία εξάρτηση εκτός από Google Fonts (Cinzel, Cormorant Garamond, EB Garamond). Κάθε τόμος συνδέεται απευθείας με το αντίστοιχο PDF στο `nglgreece.org`, ανοίγοντας σε νέα καρτέλα.
+Αρχείο HTML (`index.html`) με μία τοπική εικόνα (`assets/cover.jpg`, το εξώφυλλο στην κεφαλίδα) — καμία άλλη εξάρτηση εκτός από Google Fonts (Cinzel, Cormorant Garamond, EB Garamond). Κάθε τόμος συνδέεται απευθείας με το αντίστοιχο PDF στο `nglgreece.org`, ανοίγοντας σε νέα καρτέλα.
 
 ## Ανάπτυξη (Deployment)
 
