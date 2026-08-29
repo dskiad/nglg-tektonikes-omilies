@@ -237,6 +237,59 @@
   }
   .book:focus-visible{outline:2px solid var(--gold-bright); outline-offset:3px;}
 
+  /* ---------- Κηροπήγιο (μπρούντζινο, τρικέρι) ---------- */
+  .candelabrum{
+    flex:0 0 auto;
+    align-self:flex-end;
+    width:104px;
+    margin:0 10px;
+    pointer-events:none;
+    filter:drop-shadow(0 12px 18px rgba(0,0,0,0.6));
+  }
+  .candelabrum svg{display:block; width:100%; height:auto;}
+  .flame{
+    transform-box:fill-box;
+    transform-origin:50% 100%;
+    animation:flicker 2.8s ease-in-out infinite;
+  }
+  @keyframes flicker{
+    0%,100%{transform:scaleY(1) scaleX(1); opacity:.95;}
+    28%{transform:scaleY(1.09) scaleX(.94); opacity:1;}
+    54%{transform:scaleY(.95) scaleX(1.04); opacity:.9;}
+    76%{transform:scaleY(1.05) scaleX(.97); opacity:1;}
+  }
+
+  /* ---------- Τόμος 0008: δερμάτινο εξώφυλλο με χρυσή κλωστή ---------- */
+  .book--gw{
+    border:1px dashed rgba(233,205,134,0.75);
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.42), transparent 15%, transparent 85%, rgba(0,0,0,0.42)),
+      repeating-linear-gradient(118deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 6px),
+      repeating-linear-gradient(38deg, rgba(0,0,0,0.06) 0 3px, transparent 3px 8px),
+      radial-gradient(ellipse 90% 40% at 50% 12%, rgba(255,231,178,0.10), transparent 60%),
+      linear-gradient(180deg,#5c3c23 0%,#402716 48%,#291a0f 100%);
+    box-shadow:
+      inset 0 0 0 2px rgba(0,0,0,0.35),
+      inset 0 0 0 3px rgba(201,162,75,0.45),
+      inset 0 1px 0 rgba(255,255,255,0.07),
+      2px 0 8px rgba(0,0,0,0.5);
+  }
+  .book--gw .spine-title{max-height:164px;}
+  .spine-gw{
+    margin-top:12px;
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    font-size:7.5px;
+    letter-spacing:.06em;
+    line-height:1.5;
+    text-align:center;
+    color:#e9cd86;
+    text-shadow:0 0 6px rgba(233,205,134,0.45), 0 1px 0 rgba(0,0,0,0.7);
+  }
+
+  /* Προσωρινά κρυμμένος τόμος — αφαιρέστε την κλάση is-hidden για επαναφορά */
+  .slot.is-hidden{display:none;}
+
   .flyout{
     position:absolute;
     bottom:calc(100% + 4px);
@@ -561,7 +614,7 @@
     <div class="wing-head">
       <span class="wing-title" id="w2">Ιστορία &amp; Ορόσημα</span>
       <span class="wing-thread"></span>
-      <span class="wing-count">3 τόμοι</span>
+      <span class="wing-count">2 τόμοι</span>
     </div>
     <div class="case">
       <div class="row">
@@ -581,7 +634,8 @@
           </a>
           <div class="flyout"><h4>Τα Ορόσημα Του Ελευθεροτεκτονισμού Β΄</h4><a href="https://nglgreece.org/wp-content/uploads/2026/08/0010-ΤΑ-ΟΡΟΣΗΜΑ-ΤΟΥ-ΕΛΕΥΘΕΡΟΤΕΚΤΟΝΙΣΜΟΥ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
         </div>
-        <div class="slot">
+        <!-- 0011: προσωρινά κρυμμένος κατόπιν αιτήματος — επαναφορά: αφαιρέστε το " is-hidden" -->
+        <div class="slot is-hidden">
           <a class="book" style="--tone:var(--umber)" target="_blank" rel="noopener"
              href="https://nglgreece.org/wp-content/uploads/2026/08/0011-Η-ΤΕΧΝΗ-ΤΗΣ-ΔΙΑΔΟΧΗΣ.pdf">
             <span class="spine-num">Αρ. 0011</span>
@@ -603,10 +657,11 @@
     <div class="case">
       <div class="row">
         <div class="slot">
-          <a class="book" style="--tone:var(--plum)" target="_blank" rel="noopener"
+          <a class="book book--gw" target="_blank" rel="noopener"
              href="https://nglgreece.org/wp-content/uploads/2026/08/0008-ΠΕΡΙ-ΤΕΚΤΟΝΙΚΗΣ-ΔΙΟΙΚΗΣΗΣ.pdf">
             <span class="spine-num">Αρ. 0008</span>
             <span class="spine-title">Περί Τεκτονικής Διοικήσεως</span>
+            <span class="spine-gw">George Washington</span>
           </a>
           <div class="flyout"><h4>Περί Τεκτονικής Διοικήσεως</h4><a href="https://nglgreece.org/wp-content/uploads/2026/08/0008-ΠΕΡΙ-ΤΕΚΤΟΝΙΚΗΣ-ΔΙΟΙΚΗΣΗΣ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
         </div>
@@ -625,9 +680,9 @@
 
   <section class="wing" aria-labelledby="w4">
     <div class="wing-head">
-      <span class="wing-title" id="w4">Πίνακες Χαράξεως — Emulation</span>
+      <span class="wing-title" id="w4">Πίνακες Χαράξεως — Emulation &amp; Scottish Rite</span>
       <span class="wing-thread"></span>
-      <span class="wing-count">3 τόμοι</span>
+      <span class="wing-count">6 τόμοι</span>
     </div>
     <div class="case">
       <div class="row">
@@ -655,19 +710,81 @@
           </a>
           <div class="flyout"><h4>Emulation — Πίνακας Χαράξεως Διδασκάλου</h4><a href="https://nglgreece.org/wp-content/uploads/2026/08/0014-EMULATION-ΠΙΝΑΚΑΣ-ΧΑΡΑΞΕΩΣ-ΔΙΔΑΣΚΑΛΟΥ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
         </div>
-      </div>
-      <div class="shelf-plank"></div>
-    </div>
-  </section>
+        <div class="candelabrum" aria-hidden="true">
+          <svg viewBox="0 0 120 232" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bronze" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#5b3714"/>
+                <stop offset=".28" stop-color="#a97428"/>
+                <stop offset=".46" stop-color="#e5c274"/>
+                <stop offset=".64" stop-color="#b07c2c"/>
+                <stop offset="1" stop-color="#4a2c11"/>
+              </linearGradient>
+              <linearGradient id="wax" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#b9a985"/>
+                <stop offset=".4" stop-color="#efe4c8"/>
+                <stop offset="1" stop-color="#9d8f6e"/>
+              </linearGradient>
+              <linearGradient id="flameGrad" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0" stop-color="#c2601a"/>
+                <stop offset=".45" stop-color="#f0a52c"/>
+                <stop offset="1" stop-color="#ffe9a8"/>
+              </linearGradient>
+              <radialGradient id="halo">
+                <stop offset="0" stop-color="#ffca6a" stop-opacity=".38"/>
+                <stop offset="1" stop-color="#ffca6a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
 
-  <section class="wing" aria-labelledby="w5">
-    <div class="wing-head">
-      <span class="wing-title" id="w5">Πίνακες Χαράξεως — Scottish Rite</span>
-      <span class="wing-thread"></span>
-      <span class="wing-count">3 τόμοι</span>
-    </div>
-    <div class="case">
-      <div class="row">
+            <!-- λάμψη -->
+            <ellipse cx="60" cy="44" rx="52" ry="46" fill="url(#halo)"/>
+
+            <!-- βάση -->
+            <ellipse cx="60" cy="224" rx="31" ry="7" fill="url(#bronze)"/>
+            <path d="M33 224 q7 -17 27 -17 q20 0 27 17 z" fill="url(#bronze)"/>
+            <ellipse cx="60" cy="206" rx="15" ry="4.5" fill="url(#bronze)"/>
+            <path d="M46 206 q6 -12 14 -12 q8 0 14 12 z" fill="url(#bronze)" opacity=".92"/>
+
+            <!-- κορμός -->
+            <rect x="56" y="96" width="8" height="100" rx="3" fill="url(#bronze)"/>
+            <ellipse cx="60" cy="188" rx="10" ry="6" fill="url(#bronze)"/>
+            <ellipse cx="60" cy="158" rx="8" ry="5" fill="url(#bronze)"/>
+            <ellipse cx="60" cy="128" rx="9.5" ry="6" fill="url(#bronze)"/>
+
+            <!-- βραχίονες -->
+            <path d="M60 150 C 44 150 26 142 22 118" fill="none" stroke="url(#bronze)" stroke-width="5.5" stroke-linecap="round"/>
+            <path d="M60 150 C 76 150 94 142 98 118" fill="none" stroke="url(#bronze)" stroke-width="5.5" stroke-linecap="round"/>
+            <path d="M34 146 q-6 6 -4 13" fill="none" stroke="url(#bronze)" stroke-width="2.4" opacity=".8"/>
+            <path d="M86 146 q6 6 4 13" fill="none" stroke="url(#bronze)" stroke-width="2.4" opacity=".8"/>
+
+            <!-- δίσκοι κεριών -->
+            <ellipse cx="22" cy="116" rx="11" ry="3.6" fill="url(#bronze)"/>
+            <ellipse cx="98" cy="116" rx="11" ry="3.6" fill="url(#bronze)"/>
+            <ellipse cx="60" cy="96" rx="12" ry="4" fill="url(#bronze)"/>
+
+            <!-- κεριά -->
+            <rect x="17.5" y="78" width="9" height="38" rx="2" fill="url(#wax)"/>
+            <rect x="93.5" y="78" width="9" height="38" rx="2" fill="url(#wax)"/>
+            <rect x="55" y="48" width="10" height="48" rx="2" fill="url(#wax)"/>
+            <ellipse cx="22" cy="78" rx="4.5" ry="1.8" fill="#f4ead0"/>
+            <ellipse cx="98" cy="78" rx="4.5" ry="1.8" fill="#f4ead0"/>
+            <ellipse cx="60" cy="48" rx="5" ry="2" fill="#f4ead0"/>
+
+            <!-- φλόγες -->
+            <g class="flame" style="animation-delay:-.4s">
+              <path d="M22 76 c5 -4 6 -11 3 -16 c-1 -2 -2 -4 -3 -7 c-1 3 -2 5 -3 7 c-3 5 -2 12 3 16 z" fill="url(#flameGrad)"/>
+              <path d="M22 73 c2.4 -2 2.9 -5.6 1.4 -8.4 c-.5 -1 -1 -2 -1.4 -3.2 c-.4 1.2 -.9 2.2 -1.4 3.2 c-1.5 2.8 -1 6.4 1.4 8.4 z" fill="#fff6cf" opacity=".85"/>
+            </g>
+            <g class="flame" style="animation-delay:-1.6s">
+              <path d="M98 76 c5 -4 6 -11 3 -16 c-1 -2 -2 -4 -3 -7 c-1 3 -2 5 -3 7 c-3 5 -2 12 3 16 z" fill="url(#flameGrad)"/>
+              <path d="M98 73 c2.4 -2 2.9 -5.6 1.4 -8.4 c-.5 -1 -1 -2 -1.4 -3.2 c-.4 1.2 -.9 2.2 -1.4 3.2 c-1.5 2.8 -1 6.4 1.4 8.4 z" fill="#fff6cf" opacity=".85"/>
+            </g>
+            <g class="flame">
+              <path d="M60 45 c6 -5 7 -13 3.5 -19 c-1.2 -2.2 -2.4 -4.6 -3.5 -8 c-1.1 3.4 -2.3 5.8 -3.5 8 c-3.5 6 -2.5 14 3.5 19 z" fill="url(#flameGrad)"/>
+              <path d="M60 41 c2.9 -2.4 3.4 -6.6 1.7 -10 c-.6 -1.2 -1.2 -2.4 -1.7 -3.8 c-.5 1.4 -1.1 2.6 -1.7 3.8 c-1.7 3.4 -1.2 7.6 1.7 10 z" fill="#fff6cf" opacity=".88"/>
+            </g>
+          </svg>
+        </div>
         <div class="slot">
           <a class="book" style="--tone:var(--plum)" target="_blank" rel="noopener"
              href="https://nglgreece.org/wp-content/uploads/2026/08/0015-SCOTTISH-RITE-ΠΙΝΑΚΑΣ-ΧΑΡΑΞΕΩΣ-ΜΑΘΗΤΗ.pdf">
