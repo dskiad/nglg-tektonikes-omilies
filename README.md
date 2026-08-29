@@ -2,7 +2,7 @@
 
 Ψηφιακή βιβλιοθήκη της Εθνικής Μεγάλης Στοάς της Ελλάδος (Ε.Μ.Στ.Ε.), όπου φυλάσσονται τεκτονικές ομιλίες και εργασίες αδελφών σε μορφή PDF, οργανωμένες σε θεματικά "ράφια" εντός μιας ενιαίας, αυτόνομης σελίδας HTML.
 
-**Ζωντανή σελίδα:** _(συμπληρώστε το GitHub Pages URL μετά τη δημοσίευση, π.χ. `https://dskiad.github.io/nglg-tektonikes-omilies/`)_
+**Ζωντανή σελίδα:** <https://dskiad.github.io/nglg-tektonikes-omilies/>
 
 ## Περιεχόμενο
 
@@ -23,7 +23,7 @@
 ## Ανάπτυξη (Deployment)
 
 1. Settings → Pages → Source: `main` branch, `/ (root)`
-2. Η σελίδα δημοσιεύεται στο `https://dskiad.github.io/<repo-name>/`
+2. Η σελίδα δημοσιεύεται στο `https://dskiad.github.io/nglg-tektonikes-omilies/`
 
 ## Ενημέρωση περιεχομένου
 
