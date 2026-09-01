@@ -412,12 +412,26 @@
     font-size:13px;
     color:var(--gold-bright);
   }
-  .track-title{
+  .track-head{
     flex:0 0 auto;
-    min-width:250px;
+    min-width:260px;
+    display:flex; flex-direction:column; gap:3px;
     text-align:left;
+  }
+  .track-title{
     font-size:16px;
     color:var(--parchment);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    align-self:flex-start;
+  }
+  .track-title:hover, .track-title:focus-visible{border-color:var(--gold);}
+  .track-ref{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:12.5px;
+    letter-spacing:.03em;
+    color:var(--gold-dim);
   }
   .track-dur{
     flex:0 0 auto;
@@ -429,7 +443,7 @@
   audio{flex:1; min-width:220px; accent-color:var(--gold);}
   @media (max-width:720px){
     .track{flex-wrap:wrap; gap:10px;}
-    .track-title{min-width:0; flex:1 1 auto;}
+    .track-head{min-width:0; flex:1 1 auto;}
     audio{flex:1 0 100%;}
   }
   .soon{
@@ -836,18 +850,24 @@
   <section class="nook" aria-labelledby="nooktitle">
     <div>
       <p class="nook-title" id="nooktitle">Ακούστε</p>
-      <p class="nook-sub">Η προφορική συλλογή βρίσκεται υπό διαμόρφωση· τα διαθέσιμα επεισόδια παρατίθενται με αύξουσα αρίθμηση.</p>
+      <p class="nook-sub">Η προφορική συλλογή βρίσκεται υπό διαμόρφωση· κάθε επεισόδιο ακολουθεί τον ομόθεμο τόμο και φέρει τον αριθμό του· η σειρά είναι αύξουσα.</p>
       <ol class="tracks">
         <li class="track">
-          <span class="track-num">0</span>
-          <span class="track-title">Θεμελιώδεις Αρετές</span>
+          <span class="track-num">2</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0002-ΟΙ-ΑΡΕΤΕΣ-ΤΟΥ-ΤΕΚΤΟΝΑ.pdf" target="_blank" rel="noopener">Θεμελιώδεις Αρετές</a>
+            <span class="track-ref">Τόμος Αρ. 0002 · Οι Αρετές Του Τέκτονα</span>
+          </span>
           <audio controls preload="none" src="https://nglgreece.org/wp-content/uploads/2026/08/ΘΕΜΕΛΙΩΔΕΙΣ-ΑΡΕΤΕΣ.m4a"></audio>
         </li>
         <li class="track">
-          <span class="track-num">11</span>
-          <span class="track-title">Το 47ο Πρόβλημα του Ευκλείδη</span>
+          <span class="track-num">10</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Το 47ο Πρόβλημα του Ευκλείδη</a>
+            <span class="track-ref">Τεύχος 10 · Η Ιερή Γλώσσα Των Συμβόλων</span>
+          </span>
           <span class="track-dur">3:04</span>
-          <audio controls preload="none" src="audio/11-to-47o-provlima-tou-eukleidi.m4a"></audio>
+          <audio controls preload="none" src="audio/10-to-47o-provlima-tou-eukleidi.m4a"></audio>
         </li>
       </ol>
       <p class="soon" style="margin-top:14px;">Περισσότεροι τόμοι θα προστεθούν σύντομα.</p>
