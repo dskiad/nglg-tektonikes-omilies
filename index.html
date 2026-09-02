@@ -390,32 +390,54 @@
     font-size:14px;
     margin:0 0 16px;
   }
+  .chapter{
+    margin-top:26px;
+    padding-top:20px;
+    border-top:1px solid var(--rule);
+  }
+  .chapter-title{
+    margin:0 0 4px;
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    font-size:19px;
+    letter-spacing:.10em;
+    color:var(--gold-bright);
+    text-shadow:0 1px 0 #7a5c22, 0 2px 0 #5d461a, 0 4px 8px rgba(0,0,0,0.55);
+  }
+  .chapter-note{
+    margin:0 0 16px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:13.5px;
+    color:var(--ink-dim);
+  }
   .tracks{
     list-style:none;
     margin:0; padding:0;
-    display:flex; flex-direction:column; gap:10px;
+    display:flex; flex-direction:column; gap:8px;
   }
   .track{
     display:flex; align-items:center; gap:16px;
-    padding:14px 16px;
+    padding:12px 18px;
     background:rgba(0,0,0,0.18);
     border-radius:6px;
   }
+  .track--soon{background:rgba(0,0,0,0.10); opacity:.62;}
   .track-num{
     flex:0 0 auto;
-    width:34px; height:34px;
+    width:32px; height:32px;
     display:grid; place-items:center;
     border:1px solid rgba(201,162,75,0.45);
     border-radius:50%;
     background:radial-gradient(circle at 38% 32%, rgba(233,205,134,0.18), transparent 70%);
     font-family:'Cinzel', serif;
-    font-size:13px;
+    font-size:12.5px;
     color:var(--gold-bright);
   }
   .track-head{
-    flex:0 0 auto;
-    min-width:260px;
-    display:flex; flex-direction:column; gap:3px;
+    flex:1 1 auto;
+    min-width:0;
+    display:flex; flex-direction:column; gap:2px;
     text-align:left;
   }
   .track-title{
@@ -429,22 +451,94 @@
   .track-ref{
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
-    font-size:12.5px;
-    letter-spacing:.03em;
+    font-size:13px;
     color:var(--gold-dim);
   }
-  .track-dur{
+  .track-soon{
     flex:0 0 auto;
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
     font-size:13px;
     color:var(--ink-dim);
   }
-  audio{flex:1; min-width:220px; accent-color:var(--gold);}
-  @media (max-width:720px){
-    .track{flex-wrap:wrap; gap:10px;}
-    .track-head{min-width:0; flex:1 1 auto;}
-    audio{flex:1 0 100%;}
+
+  /* ---------- Ο χρυσός διακόπτης αναπαραγωγής ---------- */
+  .player{
+    flex:0 0 auto;
+    display:flex; align-items:center; gap:16px;
+  }
+  .scrub{width:190px;}
+  .bar{
+    height:5px;
+    border-radius:3px;
+    background:rgba(255,255,255,0.10);
+    box-shadow:inset 0 1px 2px rgba(0,0,0,0.6);
+    cursor:pointer;
+    overflow:hidden;
+  }
+  .bar-fill{
+    display:block; width:0; height:100%;
+    background:linear-gradient(90deg, #8a6522, var(--gold) 60%, var(--gold-bright));
+  }
+  .times{
+    display:flex; justify-content:space-between;
+    margin-top:5px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:11.5px;
+    color:var(--ink-dim);
+  }
+  .play{
+    flex:0 0 auto;
+    width:82px; height:82px;
+    padding:7px;
+    border:0; border-radius:50%;
+    cursor:pointer;
+    background:
+      conic-gradient(from 205deg,
+        #5f4415, #d9b866 12%, #a37c2c 24%, #f6e7b4 38%, #8d6823 52%,
+        #e3c479 66%, #99722a 80%, #f2dfa4 90%, #5f4415);
+    box-shadow:
+      0 14px 22px rgba(0,0,0,0.62),
+      inset 0 2px 0 rgba(255,242,196,0.22),
+      0 0 0 1px rgba(52,38,12,0.85);
+    transition:transform .12s ease, box-shadow .12s ease, filter .2s ease;
+  }
+  .play-face{
+    position:relative;
+    display:grid; place-items:center;
+    width:100%; height:100%;
+    border-radius:50%;
+    background:
+      repeating-linear-gradient(56deg, rgba(255,255,255,0.11) 0 1px, rgba(0,0,0,0.055) 1px 3px),
+      radial-gradient(circle at 40% 30%, #fbf0c9 0%, #e6c979 26%, #c9a244 56%, #916c28 86%, #6d5019 100%);
+    box-shadow:
+      inset 0 2px 4px rgba(255,248,219,0.6),
+      inset 0 -9px 15px rgba(0,0,0,0.38),
+      0 0 0 1px rgba(88,64,20,0.6);
+  }
+  .play svg{
+    width:27px; height:27px;
+    fill:#4a3413;
+    filter:drop-shadow(0 1px 0 rgba(255,244,206,0.55));
+  }
+  .play .ico-pause{display:none;}
+  .play[data-playing] .ico-play{display:none;}
+  .play[data-playing] .ico-pause{display:block;}
+  .play[data-playing]{filter:drop-shadow(0 0 14px rgba(233,205,134,0.35));}
+  .play:hover{transform:translateY(-1px);}
+  .play:active{
+    transform:translateY(3px);
+    box-shadow:0 6px 12px rgba(0,0,0,0.6), 0 0 0 1px rgba(52,38,12,0.85);
+  }
+  .play:focus-visible{outline:2px solid var(--gold-bright); outline-offset:4px;}
+  @media (max-width:860px){
+    .track{flex-wrap:wrap; gap:12px;}
+    .track-head{flex:1 1 200px;}
+    .player{flex:1 1 100%; justify-content:space-between;}
+    .scrub{flex:1 1 auto; width:auto;}
+    .play{width:68px; height:68px;}
+    .play svg{width:23px; height:23px;}
   }
   .soon{
     font-family:'Cormorant Garamond', serif;
@@ -850,36 +944,177 @@
   <section class="nook" aria-labelledby="nooktitle">
     <div>
       <p class="nook-title" id="nooktitle">Ακούστε</p>
-      <p class="nook-sub">Η προφορική συλλογή βρίσκεται υπό διαμόρφωση· κάθε επεισόδιο ακολουθεί τον ομόθεμο τόμο και φέρει τον αριθμό του· η σειρά είναι αύξουσα.</p>
-      <ol class="tracks">
-        <li class="track">
+      <p class="nook-sub">Η προφορική συλλογή ακολουθεί τα κείμενα: κάθε επεισόδιο αντιστοιχεί στην ομώνυμη ενότητα του τόμου.</p>
+
+      <article class="chapter" aria-labelledby="ch-symbols">
+        <h3 class="chapter-title" id="ch-symbols">Ιερά Σύμβολα</h3>
+        <p class="chapter-note">Δεκατέσσερις ενότητες του τόμου Αρ. 0001 · τα ηχογραφημένα επεισόδια παίζουν από εδώ.</p>
+        <ol class="tracks">
+        <li class="track track--soon">
+          <span class="track-num">1</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Η Ιερή Γλώσσα Των Συμβόλων</a>
+            <span class="track-ref">Γιατί ο Τεκτονισμός διδάσκει με Σύμβολα</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        <li class="track track--soon">
           <span class="track-num">2</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ο Ακατέργαστος Λίθος</a>
+            <span class="track-ref">Η Αφετηρία της Μύησης και η Μεγάλη Πρόκληση της Αυτογνωσίας</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        <li class="track track--soon">
+          <span class="track-num">3</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ο Λείος Λίθος</a>
+            <span class="track-ref">Η Αρετή ως Διαρκής Πορεία και όχι ως Τελικός Προορισμός</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        <li class="track track--soon">
+          <span class="track-num">4</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ο Γνώμονας</a>
+            <span class="track-ref">Η Ευθύτητα του Χαρακτήρα και η Δικαιοσύνη ως Τρόπος Ζωής</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        <li class="track track--soon">
+          <span class="track-num">5</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ο Διαβήτης</a>
+            <span class="track-ref">Το Μέτρο, η Αυτοκυριαρχία και τα Όρια της Ανθρώπινης Ελευθερίας</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        <li class="track">
+          <span class="track-num">6</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Η Σφύρα Και Η Σμίλη</a>
+            <span class="track-ref">Η Δύναμη της Μεταμόρφωσης και η Τέχνη της Προσωπικής Εργασίας</span>
+          </span>
+            <div class="player">
+              <button class="play" type="button" aria-label="Αναπαραγωγή — Η Σφύρα Και Η Σμίλη" aria-pressed="false">
+                <span class="play-face">
+                  <svg viewBox="0 0 24 24" class="ico-play" aria-hidden="true"><path d="M8 5.2 19 12 8 18.8 Z"/></svg>
+                  <svg viewBox="0 0 24 24" class="ico-pause" aria-hidden="true"><path d="M7.5 5h3.4v14H7.5zM13.1 5h3.4v14h-3.4z"/></svg>
+                </span>
+              </button>
+              <div class="scrub">
+                <div class="bar"><span class="bar-fill"></span></div>
+                <div class="times"><span class="t-now">0:00</span><span class="t-end">3:03</span></div>
+              </div>
+              <audio preload="none" src="audio/06-i-sfyra-kai-i-smili.m4a"></audio>
+            </div>
+        </li>
+        <li class="track track--soon">
+          <span class="track-num">7</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Οι Δύο Στήλες: Ιαχίν Και Βοόζ</a>
+            <span class="track-ref">Η Δυάδα που Στηρίζει τον Ναό και την Ανθρώπινη Ψυχή</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        <li class="track track--soon">
+          <span class="track-num">8</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Το Μωσαϊκό Δάπεδο</a>
+            <span class="track-ref">Η Δυαδικότητα της Ζωής και η Πορεία προς την Εσωτερική Αρμονία</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        <li class="track track--soon">
+          <span class="track-num">9</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ο Φλεγόμενος Αστήρ</a>
+            <span class="track-ref">Το Εσωτερικό Φως και η Πορεία προς τη Σοφία</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        <li class="track track--soon">
+          <span class="track-num">10</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Το Γράμμα G</a>
+            <span class="track-ref">Η Γεωμετρία, ο Μέγας Αρχιτέκτων και ο Νόμος που Διέπει το Σύμπαν</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        <li class="track">
+          <span class="track-num">11</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Το 47ο Πρόβλημα Του Ευκλείδη</a>
+            <span class="track-ref">Η Γεωμετρία ως Ηθικός Νόμος και η Αρμονία του Σύμπαντος</span>
+          </span>
+            <div class="player">
+              <button class="play" type="button" aria-label="Αναπαραγωγή — Το 47ο Πρόβλημα Του Ευκλείδη" aria-pressed="false">
+                <span class="play-face">
+                  <svg viewBox="0 0 24 24" class="ico-play" aria-hidden="true"><path d="M8 5.2 19 12 8 18.8 Z"/></svg>
+                  <svg viewBox="0 0 24 24" class="ico-pause" aria-hidden="true"><path d="M7.5 5h3.4v14H7.5zM13.1 5h3.4v14h-3.4z"/></svg>
+                </span>
+              </button>
+              <div class="scrub">
+                <div class="bar"><span class="bar-fill"></span></div>
+                <div class="times"><span class="t-now">0:00</span><span class="t-end">3:04</span></div>
+              </div>
+              <audio preload="none" src="audio/11-to-47o-provlima-tou-eukleidi.m4a"></audio>
+            </div>
+        </li>
+        <li class="track track--soon">
+          <span class="track-num">12</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ο Ναός Του Σολομώντα</a>
+            <span class="track-ref">Το Μεγαλύτερο Σύμβολο του Ελευθεροτεκτονισμού και ο Εσωτερικός Ναός του Ανθρώπου</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        <li class="track track--soon">
+          <span class="track-num">13</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Το Φως</a>
+            <span class="track-ref">Η Ύψιστη Αναζήτηση του Ελευθεροτέκτονα</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        <li class="track track--soon">
+          <span class="track-num">14</span>
+          <span class="track-head">
+            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Η Κλίμακα Του Ιακώβ</a>
+            <span class="track-ref">Η Πνευματική Ανάβαση και τα Σκαλοπάτια της Ανθρώπινης Τελείωσης</span>
+          </span>
+            <span class="track-soon">σύντομα</span>
+        </li>
+        </ol>
+      </article>
+
+      <article class="chapter" aria-labelledby="ch-virtues">
+        <h3 class="chapter-title" id="ch-virtues">Θεμελιώδεις Αρετές</h3>
+        <p class="chapter-note">Αυτοτελής ομιλία, χωρίς υποενότητες.</p>
+        <ol class="tracks">
+        <li class="track">
+          <span class="track-num">◆</span>
           <span class="track-head">
             <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0002-ΟΙ-ΑΡΕΤΕΣ-ΤΟΥ-ΤΕΚΤΟΝΑ.pdf" target="_blank" rel="noopener">Θεμελιώδεις Αρετές</a>
             <span class="track-ref">Τόμος Αρ. 0002 · Οι Αρετές Του Τέκτονα</span>
           </span>
-          <audio controls preload="none" src="https://nglgreece.org/wp-content/uploads/2026/08/ΘΕΜΕΛΙΩΔΕΙΣ-ΑΡΕΤΕΣ.m4a"></audio>
+            <div class="player">
+              <button class="play" type="button" aria-label="Αναπαραγωγή — Θεμελιώδεις Αρετές" aria-pressed="false">
+                <span class="play-face">
+                  <svg viewBox="0 0 24 24" class="ico-play" aria-hidden="true"><path d="M8 5.2 19 12 8 18.8 Z"/></svg>
+                  <svg viewBox="0 0 24 24" class="ico-pause" aria-hidden="true"><path d="M7.5 5h3.4v14H7.5zM13.1 5h3.4v14h-3.4z"/></svg>
+                </span>
+              </button>
+              <div class="scrub">
+                <div class="bar"><span class="bar-fill"></span></div>
+                <div class="times"><span class="t-now">0:00</span><span class="t-end">—</span></div>
+              </div>
+              <audio preload="none" src="https://nglgreece.org/wp-content/uploads/2026/08/ΘΕΜΕΛΙΩΔΕΙΣ-ΑΡΕΤΕΣ.m4a"></audio>
+            </div>
         </li>
-        <li class="track">
-          <span class="track-num">5</span>
-          <span class="track-head">
-            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Η Σφύρα και η Σμίλη</a>
-            <span class="track-ref">Τεύχος 5 · Η Ιερή Γλώσσα Των Συμβόλων</span>
-          </span>
-          <span class="track-dur">3:03</span>
-          <audio controls preload="none" src="audio/05-i-sfyra-kai-i-smili.m4a"></audio>
-        </li>
-        <li class="track">
-          <span class="track-num">10</span>
-          <span class="track-head">
-            <a class="track-title" href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Το 47ο Πρόβλημα του Ευκλείδη</a>
-            <span class="track-ref">Τεύχος 10 · Η Ιερή Γλώσσα Των Συμβόλων</span>
-          </span>
-          <span class="track-dur">3:04</span>
-          <audio controls preload="none" src="audio/10-to-47o-provlima-tou-eukleidi.m4a"></audio>
-        </li>
-      </ol>
-      <p class="soon" style="margin-top:14px;">Περισσότεροι τόμοι θα προστεθούν σύντομα.</p>
+        </ol>
+      </article>
     </div>
   </section>
 
@@ -892,5 +1127,47 @@
   <p>Μέγας Καγκελάριος: <a href="mailto:grand.chancellor@nglgreece.gr">grand.chancellor@nglgreece.gr</a></p>
 </footer>
 
+
+<script>
+(function(){
+  var players = [].slice.call(document.querySelectorAll('.player'));
+  function fmt(t){
+    if (!isFinite(t)) return '0:00';
+    var m = Math.floor(t / 60), sec = Math.floor(t % 60);
+    return m + ':' + (sec < 10 ? '0' + sec : sec);
+  }
+  players.forEach(function(pl){
+    var audio = pl.querySelector('audio'),
+        btn   = pl.querySelector('.play'),
+        bar   = pl.querySelector('.bar'),
+        fill  = pl.querySelector('.bar-fill'),
+        now   = pl.querySelector('.t-now'),
+        end   = pl.querySelector('.t-end');
+
+    btn.addEventListener('click', function(){
+      if (audio.paused){
+        players.forEach(function(other){ if (other !== pl) other.querySelector('audio').pause(); });
+        var p = audio.play();
+        if (p && p.catch) p.catch(function(){ end.textContent = 'μη διαθέσιμο'; });
+      } else {
+        audio.pause();
+      }
+    });
+    audio.addEventListener('play',  function(){ btn.setAttribute('data-playing',''); btn.setAttribute('aria-pressed','true'); });
+    audio.addEventListener('pause', function(){ btn.removeAttribute('data-playing'); btn.setAttribute('aria-pressed','false'); });
+    audio.addEventListener('ended', function(){ fill.style.width = '0'; now.textContent = '0:00'; });
+    audio.addEventListener('error', function(){ end.textContent = 'μη διαθέσιμο'; });
+    audio.addEventListener('loadedmetadata', function(){ end.textContent = fmt(audio.duration); });
+    audio.addEventListener('timeupdate', function(){
+      if (audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+      now.textContent = fmt(audio.currentTime);
+    });
+    bar.addEventListener('click', function(e){
+      var r = bar.getBoundingClientRect();
+      if (audio.duration) audio.currentTime = (e.clientX - r.left) / r.width * audio.duration;
+    });
+  });
+})();
+</script>
 </body>
 </html>
