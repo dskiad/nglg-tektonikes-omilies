@@ -273,7 +273,11 @@
   .book:focus-visible{outline:2px solid var(--gold-bright); outline-offset:3px;}
 
   /* ---------- Αγγλικό τμήμα ---------- */
-  .wing-en .wing-title{display:flex; align-items:center; gap:12px;}
+  .wing-en .wing-title{
+    display:flex; align-items:center; gap:14px;
+    font-size:25px;
+    letter-spacing:.09em;
+  }
   .flag-uk{
     width:36px; height:18px;
     border-radius:2px;
@@ -284,8 +288,8 @@
     width:100%;
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
-    font-size:16px;
-    line-height:1.65;
+    font-size:20px;
+    line-height:1.6;
     color:var(--gold);
   }
   .en-pod{
@@ -318,6 +322,32 @@
   @media (max-width:900px){
     .en-pod{flex-wrap:wrap; gap:14px; margin-left:18px; justify-content:center;}
   }
+  /* ασημένιοι διακόπτες στο αγγλικό τμήμα */
+  .wing-en .play{
+    background:
+      conic-gradient(from 205deg,
+        #474d54, #ccd4db 12%, #878f97 24%, #f4f8fb 38%, #737b83 52%,
+        #d3dae1 66%, #828a92 80%, #eef3f8 90%, #474d54);
+    box-shadow:
+      0 14px 22px rgba(0,0,0,0.62),
+      inset 0 2px 0 rgba(255,255,255,0.35),
+      0 0 0 1px rgba(28,32,36,0.85);
+  }
+  .wing-en .play-face{
+    background:
+      repeating-linear-gradient(56deg, rgba(255,255,255,0.16) 0 1px, rgba(0,0,0,0.07) 1px 3px),
+      radial-gradient(circle at 40% 30%, #fdfefe 0%, #dde4ea 26%, #b2bbc3 56%, #7d858d 86%, #5c636a 100%);
+    box-shadow:
+      inset 0 2px 4px rgba(255,255,255,0.75),
+      inset 0 -9px 15px rgba(0,0,0,0.34),
+      0 0 0 1px rgba(52,58,64,0.6);
+  }
+  .wing-en .play svg{
+    fill:#363c42;
+    filter:drop-shadow(0 1px 0 rgba(255,255,255,0.65));
+  }
+  .wing-en .play[data-playing]{filter:drop-shadow(0 0 14px rgba(214,225,234,0.4));}
+  .wing-en .play:disabled{filter:brightness(0.8) saturate(0.85);}
   .play:disabled{
     cursor:not-allowed;
     filter:grayscale(0.35) brightness(0.72);
