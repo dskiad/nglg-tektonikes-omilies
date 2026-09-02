@@ -291,16 +291,32 @@
   .en-pod{
     flex:0 0 auto;
     align-self:center;
+    display:flex; align-items:center; gap:20px;
+    margin:0 0 0 30px;
+  }
+  .pod-item{
     display:flex; flex-direction:column; align-items:center; gap:10px;
-    margin:0 0 0 26px;
   }
   .pod-label{
+    display:flex; flex-direction:column; gap:2px;
+    text-align:center;
+  }
+  .pod-name{
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.10em;
+    color:var(--gold-bright);
+    text-shadow:0 1px 0 #7a5c22, 0 2px 4px rgba(0,0,0,0.6);
+  }
+  .pod-state{
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
-    font-size:12.5px;
-    letter-spacing:.04em;
-    color:var(--gold-dim);
-    text-align:center;
+    font-size:11.5px;
+    color:var(--ink-dim);
+  }
+  @media (max-width:900px){
+    .en-pod{flex-wrap:wrap; gap:14px; margin-left:18px; justify-content:center;}
   }
   .play:disabled{
     cursor:not-allowed;
@@ -659,15 +675,50 @@
           <div class="flyout"><h4>Making Good Men Better</h4><p class="flyout-note">The Meaning, History, Discipline, and Modern Value of Freemasonry&rsquo;s Best-Known Maxim · M.W. Bro. Ioannis Benetatos, Grand Master</p><a href="library/0019-making-good-men-better.pdf" target="_blank" rel="noopener">Read →</a></div>
         </div>
         <div class="en-pod">
-          <div class="player player--pending">
-            <button class="play" type="button" aria-label="Podcast — not yet available" disabled>
-              <span class="play-face">
-                <svg viewBox="0 0 24 24" class="ico-play" aria-hidden="true"><path d="M8 5.2 19 12 8 18.8 Z"/></svg>
-                <svg viewBox="0 0 24 24" class="ico-pause" aria-hidden="true"><path d="M7.5 5h3.4v14H7.5zM13.1 5h3.4v14h-3.4z"/></svg>
-              </span>
-            </button>
+          <div class="pod-item">
+            <div class="player player--pending" data-part="1">
+              <button class="play" type="button" aria-label="Podcast Part 1 — not yet available" disabled>
+                <span class="play-face">
+                  <svg viewBox="0 0 24 24" class="ico-play" aria-hidden="true"><path d="M8 5.2 19 12 8 18.8 Z"/></svg>
+                  <svg viewBox="0 0 24 24" class="ico-pause" aria-hidden="true"><path d="M7.5 5h3.4v14H7.5zM13.1 5h3.4v14h-3.4z"/></svg>
+                </span>
+              </button>
+            </div>
+            <span class="pod-label"><span class="pod-name">Part 1</span><span class="pod-state">coming soon</span></span>
           </div>
-          <span class="pod-label">Podcast<br>coming soon</span>
+          <div class="pod-item">
+            <div class="player player--pending" data-part="2">
+              <button class="play" type="button" aria-label="Podcast Part 2 — not yet available" disabled>
+                <span class="play-face">
+                  <svg viewBox="0 0 24 24" class="ico-play" aria-hidden="true"><path d="M8 5.2 19 12 8 18.8 Z"/></svg>
+                  <svg viewBox="0 0 24 24" class="ico-pause" aria-hidden="true"><path d="M7.5 5h3.4v14H7.5zM13.1 5h3.4v14h-3.4z"/></svg>
+                </span>
+              </button>
+            </div>
+            <span class="pod-label"><span class="pod-name">Part 2</span><span class="pod-state">coming soon</span></span>
+          </div>
+          <div class="pod-item">
+            <div class="player player--pending" data-part="3">
+              <button class="play" type="button" aria-label="Podcast Part 3 — not yet available" disabled>
+                <span class="play-face">
+                  <svg viewBox="0 0 24 24" class="ico-play" aria-hidden="true"><path d="M8 5.2 19 12 8 18.8 Z"/></svg>
+                  <svg viewBox="0 0 24 24" class="ico-pause" aria-hidden="true"><path d="M7.5 5h3.4v14H7.5zM13.1 5h3.4v14h-3.4z"/></svg>
+                </span>
+              </button>
+            </div>
+            <span class="pod-label"><span class="pod-name">Part 3</span><span class="pod-state">coming soon</span></span>
+          </div>
+          <div class="pod-item">
+            <div class="player player--pending" data-part="4">
+              <button class="play" type="button" aria-label="Podcast Part 4 — not yet available" disabled>
+                <span class="play-face">
+                  <svg viewBox="0 0 24 24" class="ico-play" aria-hidden="true"><path d="M8 5.2 19 12 8 18.8 Z"/></svg>
+                  <svg viewBox="0 0 24 24" class="ico-pause" aria-hidden="true"><path d="M7.5 5h3.4v14H7.5zM13.1 5h3.4v14h-3.4z"/></svg>
+                </span>
+              </button>
+            </div>
+            <span class="pod-label"><span class="pod-name">Part 4</span><span class="pod-state">coming soon</span></span>
+          </div>
         </div>
         <div class="shelf-label"><span class="lead">English</span><span>Papers</span></div>
       </div>
