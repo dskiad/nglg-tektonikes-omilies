@@ -385,6 +385,56 @@
       2px 0 8px rgba(0,0,0,0.5);
   }
   .book--leather .spine-title{max-height:164px;}
+  /* Ειδική ελληνική έκδοση του “Make Good Men Better” */
+  .book--featured-gr{
+    width:96px;
+    height:345px;
+    padding:11px 8px 10px;
+    border:1px solid rgba(233,205,134,0.72);
+    background:
+      linear-gradient(90deg, rgba(255,255,255,0.035), transparent 12%, transparent 86%, rgba(0,0,0,0.75)),
+      repeating-linear-gradient(112deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 5px),
+      radial-gradient(ellipse 110% 42% at 48% 8%, rgba(233,205,134,0.08), transparent 62%),
+      linear-gradient(180deg, #181818 0%, #080808 48%, #020202 100%);
+    box-shadow:
+      inset 0 0 0 2px rgba(0,0,0,0.92),
+      inset 0 0 0 3px rgba(201,162,75,0.46),
+      inset 7px 0 12px rgba(255,255,255,0.025),
+      4px 0 11px rgba(0,0,0,0.68);
+  }
+  .book--featured-gr::before{
+    width:82%;
+    margin-bottom:7px;
+    opacity:.9;
+  }
+  .book--featured-gr::after{
+    width:82%;
+    margin:7px 0 0;
+    opacity:.9;
+  }
+  .book--featured-gr .spine-title{
+    max-height:244px;
+    margin:0;
+    font-family:'Palatino Linotype', 'Book Antiqua', Palatino, 'Cormorant Garamond', serif;
+    font-size:16px;
+    font-weight:700;
+    line-height:1.22;
+    letter-spacing:.025em;
+    color:var(--gold-bright);
+    text-shadow:0 1px 0 #6d531f, 0 0 8px rgba(233,205,134,0.25);
+  }
+  .spine-date{
+    margin-top:auto;
+    font-family:'Cinzel', serif;
+    font-size:10px;
+    letter-spacing:.08em;
+    color:var(--gold-bright);
+    white-space:nowrap;
+  }
+  .slot:hover .book--featured-gr,
+  .slot:focus-within .book--featured-gr{
+    transform:translateY(-14px) rotate(-1deg) scale(1.15);
+  }
   .spine-gw{
     margin-top:12px;
     font-family:'Cinzel', serif;
@@ -907,7 +957,7 @@
     <div class="wing-head">
       <span class="wing-title" id="w1">Φιλοσοφία &amp; Αρχές</span>
       <span class="wing-thread"></span>
-      <span class="wing-count">6 τόμοι</span>
+      <span class="wing-count">7 τόμοι</span>
     </div>
     <div class="case">
       <div class="row">
@@ -981,6 +1031,16 @@
             <span class="spine-title">Ο Βασιλιάς Πρέπει Να Πεθάνει</span>
           </a>
           <div class="flyout"><h4>Ο Βασιλιάς Πρέπει Να Πεθάνει</h4><p class="flyout-note">Μια φιλοσοφική προσέγγιση · Σεβτ. Αδ. Ιωάννης Μπενετάτος, Μέγας Διδάσκαλος</p><a href="library/0018-o-vasilias-prepei-na-pethanei.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
+        </div>
+        <!-- 0019 · Ελληνική έκδοση -->
+        <div class="slot">
+          <a class="book book--featured-gr" target="_blank" rel="noopener"
+             href="library/0019-na-kanoume-tous-kalous-anthropous-kalyterous.pdf"
+             aria-label="Άνοιγμα: Να Κάνουμε Τους Καλούς Ανθρώπους Καλύτερους">
+            <span class="spine-title">Να Κάνουμε Τους Καλούς Ανθρώπους Καλύτερους</span>
+            <time class="spine-date" datetime="2026-09-02">2-9-26</time>
+          </a>
+          <div class="flyout"><h4>Να Κάνουμε Τους Καλούς Ανθρώπους Καλύτερους</h4><p class="flyout-note">Make Good Men Better · Σεβτ. Αδ. Ιωάννης Μπενετάτος, Μέγας Διδάσκαλος · 2-9-26</p><a href="library/0019-na-kanoume-tous-kalous-anthropous-kalyterous.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
         </div>
         <div class="shelf-label"><span class="lead">Philosophy</span><span>and Principles</span></div>
       </div>
