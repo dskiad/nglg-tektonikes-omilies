@@ -710,15 +710,16 @@
         </div>
         <div class="en-pod">
           <div class="pod-item">
-            <div class="player player--pending" data-part="1">
-              <button class="play" type="button" aria-label="Podcast Part 1 — not yet available" disabled>
+            <div class="player" data-part="1">
+              <button class="play" type="button" aria-label="Play Podcast Part 1 — Making Good Men Better" aria-pressed="false">
                 <span class="play-face">
                   <svg viewBox="0 0 24 24" class="ico-play" aria-hidden="true"><path d="M8 5.2 19 12 8 18.8 Z"/></svg>
                   <svg viewBox="0 0 24 24" class="ico-pause" aria-hidden="true"><path d="M7.5 5h3.4v14H7.5zM13.1 5h3.4v14h-3.4z"/></svg>
                 </span>
               </button>
+              <audio preload="none" src="audio/0019-making-good-men-better-part-1.m4a"></audio>
             </div>
-            <span class="pod-label"><span class="pod-name">Part 1</span><span class="pod-state">coming soon</span></span>
+            <span class="pod-label"><span class="pod-name">Part 1</span><span class="pod-state">listen now</span></span>
           </div>
           <div class="pod-item">
             <div class="player player--pending" data-part="2">
@@ -1470,26 +1471,34 @@
 
     btn.addEventListener('click', function(){
       if (audio.paused){
-        players.forEach(function(other){ if (other !== pl) other.querySelector('audio').pause(); });
+        players.forEach(function(other){
+          var otherAudio = other.querySelector('audio');
+          if (other !== pl && otherAudio) otherAudio.pause();
+        });
         var p = audio.play();
-        if (p && p.catch) p.catch(function(){ end.textContent = 'μη διαθέσιμο'; });
+        if (p && p.catch) p.catch(function(){ if (end) end.textContent = 'μη διαθέσιμο'; });
       } else {
         audio.pause();
       }
     });
     audio.addEventListener('play',  function(){ btn.setAttribute('data-playing',''); btn.setAttribute('aria-pressed','true'); });
     audio.addEventListener('pause', function(){ btn.removeAttribute('data-playing'); btn.setAttribute('aria-pressed','false'); });
-    audio.addEventListener('ended', function(){ fill.style.width = '0'; now.textContent = '0:00'; });
-    audio.addEventListener('error', function(){ end.textContent = 'μη διαθέσιμο'; });
-    audio.addEventListener('loadedmetadata', function(){ end.textContent = fmt(audio.duration); });
+    audio.addEventListener('ended', function(){
+      if (fill) fill.style.width = '0';
+      if (now) now.textContent = '0:00';
+    });
+    audio.addEventListener('error', function(){ if (end) end.textContent = 'μη διαθέσιμο'; });
+    audio.addEventListener('loadedmetadata', function(){ if (end) end.textContent = fmt(audio.duration); });
     audio.addEventListener('timeupdate', function(){
-      if (audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
-      now.textContent = fmt(audio.currentTime);
+      if (fill && audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+      if (now) now.textContent = fmt(audio.currentTime);
     });
-    bar.addEventListener('click', function(e){
-      var r = bar.getBoundingClientRect();
-      if (audio.duration) audio.currentTime = (e.clientX - r.left) / r.width * audio.duration;
-    });
+    if (bar) {
+      bar.addEventListener('click', function(e){
+        var r = bar.getBoundingClientRect();
+        if (audio.duration) audio.currentTime = (e.clientX - r.left) / r.width * audio.duration;
+      });
+    }
   });
 })();
 </script>
