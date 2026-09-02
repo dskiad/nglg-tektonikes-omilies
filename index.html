@@ -272,6 +272,42 @@
   }
   .book:focus-visible{outline:2px solid var(--gold-bright); outline-offset:3px;}
 
+  /* ---------- Αγγλικό τμήμα ---------- */
+  .wing-en .wing-title{display:flex; align-items:center; gap:12px;}
+  .flag-uk{
+    width:36px; height:18px;
+    border-radius:2px;
+    box-shadow:0 0 0 1px rgba(201,162,75,0.55), 0 3px 7px rgba(0,0,0,0.6);
+  }
+  .wing-intro{
+    margin:0 0 14px;
+    max-width:62ch;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    line-height:1.6;
+    color:var(--ink-dim);
+  }
+  .en-pod{
+    flex:0 0 auto;
+    align-self:center;
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    margin:0 0 0 26px;
+  }
+  .pod-label{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:12.5px;
+    letter-spacing:.04em;
+    color:var(--gold-dim);
+    text-align:center;
+  }
+  .play:disabled{
+    cursor:not-allowed;
+    filter:grayscale(0.35) brightness(0.72);
+  }
+  .play:disabled:hover{transform:none;}
+
   /* ---------- Κηροπήγιο (μπρούντζινο, τρικέρι) ---------- */
   .candelabrum{
     flex:0 0 auto;
@@ -283,8 +319,8 @@
   }
   .candelabrum img{display:block; width:100%; height:auto;}
 
-  /* ---------- Τόμος 0008: δερμάτινο εξώφυλλο με χρυσή κλωστή ---------- */
-  .book--gw{
+  /* ---------- Δερμάτινο εξώφυλλο με χρυσή κλωστή ---------- */
+  .book--leather{
     border:1px dashed rgba(233,205,134,0.75);
     background:
       linear-gradient(90deg, rgba(0,0,0,0.42), transparent 15%, transparent 85%, rgba(0,0,0,0.42)),
@@ -298,7 +334,7 @@
       inset 0 1px 0 rgba(255,255,255,0.07),
       2px 0 8px rgba(0,0,0,0.5);
   }
-  .book--gw .spine-title{max-height:164px;}
+  .book--leather .spine-title{max-height:164px;}
   .spine-gw{
     margin-top:12px;
     font-family:'Cinzel', serif;
@@ -591,6 +627,54 @@
 
 <main>
 
+  <section class="wing wing-en" aria-labelledby="w-en">
+    <div class="wing-head">
+      <span class="wing-title" id="w-en">
+        <svg class="flag-uk" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="United Kingdom">
+          <clipPath id="ukfield"><path d="M0 0h60v30H0z"/></clipPath>
+          <g clip-path="url(#ukfield)">
+            <path d="M0 0h60v30H0z" fill="#012169"/>
+            <path d="M0 0l60 30M60 0L0 30" stroke="#ffffff" stroke-width="6"/>
+            <path d="M0 0l60 30M60 0L0 30" stroke="#c8102e" stroke-width="3"/>
+            <path d="M30 0v30M0 15h60" stroke="#ffffff" stroke-width="10"/>
+            <path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/>
+          </g>
+        </svg>
+        In English
+      </span>
+      <span class="wing-thread"></span>
+      <span class="wing-count">1 volume</span>
+    </div>
+    <p class="wing-intro">As in Greece we count many foreign Brethren among us, a part of our work is offered in English as well. The paper below is published in English, and its recorded reading will stand beside it.</p>
+    <div class="case">
+      <div class="row">
+        <!-- 0019 -->
+        <div class="slot">
+          <a class="book book--leather" target="_blank" rel="noopener"
+             href="library/0019-making-good-men-better.pdf">
+            <span class="spine-num">No. 0019</span>
+            <span class="spine-title">Making Good Men Better</span>
+            <span class="spine-gw">Grand Master</span>
+          </a>
+          <div class="flyout"><h4>Making Good Men Better</h4><p class="flyout-note">The Meaning, History, Discipline, and Modern Value of Freemasonry&rsquo;s Best-Known Maxim · M.W. Bro. Ioannis Benetatos, Grand Master</p><a href="library/0019-making-good-men-better.pdf" target="_blank" rel="noopener">Read →</a></div>
+        </div>
+        <div class="en-pod">
+          <div class="player player--pending">
+            <button class="play" type="button" aria-label="Podcast — not yet available" disabled>
+              <span class="play-face">
+                <svg viewBox="0 0 24 24" class="ico-play" aria-hidden="true"><path d="M8 5.2 19 12 8 18.8 Z"/></svg>
+                <svg viewBox="0 0 24 24" class="ico-pause" aria-hidden="true"><path d="M7.5 5h3.4v14H7.5zM13.1 5h3.4v14h-3.4z"/></svg>
+              </span>
+            </button>
+          </div>
+          <span class="pod-label">Podcast<br>coming soon</span>
+        </div>
+        <div class="shelf-label"><span class="lead">English</span><span>Papers</span></div>
+      </div>
+      <div class="shelf-plank"></div>
+    </div>
+  </section>
+
   <section class="wing wing-issues" aria-labelledby="w0">
     <div class="wing-head">
       <span class="wing-title" id="w0">Η Ιερή Γλώσσα Των Συμβόλων</span>
@@ -864,7 +948,7 @@
     <div class="case">
       <div class="row">
         <div class="slot">
-          <a class="book book--gw" target="_blank" rel="noopener"
+          <a class="book book--leather" target="_blank" rel="noopener"
              href="https://nglgreece.org/wp-content/uploads/2026/08/0008-ΠΕΡΙ-ΤΕΚΤΟΝΙΚΗΣ-ΔΙΟΙΚΗΣΗΣ.pdf">
             <span class="spine-num">Αρ. 0008</span>
             <span class="spine-title">Περί Τεκτονικής Διοικήσεως</span>
@@ -1291,8 +1375,9 @@
     return m + ':' + (sec < 10 ? '0' + sec : sec);
   }
   players.forEach(function(pl){
-    var audio = pl.querySelector('audio'),
-        btn   = pl.querySelector('.play'),
+    var audio = pl.querySelector('audio');
+    if (!audio) return;
+    var btn   = pl.querySelector('.play'),
         bar   = pl.querySelector('.bar'),
         fill  = pl.querySelector('.bar-fill'),
         now   = pl.querySelector('.t-now'),
