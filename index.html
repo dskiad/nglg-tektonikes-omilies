@@ -370,9 +370,14 @@
   }
   .book-cardinal{
     position:relative;
-    display:block;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
     width:244px;
     height:288px;
+    padding:26px 20px 20px;
     flex:0 0 auto;
     overflow:hidden;
     border-radius:5px 7px 5px 4px;
@@ -380,42 +385,72 @@
     cursor:pointer;
     transform-origin:bottom left;
     transform:rotateY(-4deg) rotateZ(-.35deg);
+    background:
+      radial-gradient(120% 70% at 30% 6%, rgba(255,222,150,.08), transparent 55%),
+      linear-gradient(155deg, #3d2216 0%, #26150c 55%, #170d07 100%);
     box-shadow:
       -7px 2px 0 #2a160c,
       -10px 4px 12px rgba(0,0,0,.45),
       11px 18px 24px rgba(0,0,0,.55),
       inset 0 0 0 1px rgba(233,205,134,.24);
     transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, filter .35s;
-    filter:saturate(.92) brightness(.94) sepia(.06);
+    filter:saturate(.96) brightness(.97);
   }
   .book-cardinal::before{
     content:"";
     position:absolute;
-    inset:5px;
-    z-index:2;
+    inset:8px;
+    z-index:1;
     pointer-events:none;
-    border:1px solid rgba(220,183,92,.30);
+    border:1px solid rgba(220,183,92,.34);
     border-radius:3px;
     box-shadow:
-      inset 0 0 15px rgba(25,12,5,.34),
-      0 0 0 1px rgba(40,19,7,.38);
+      inset 0 0 0 1px rgba(220,183,92,.14),
+      inset 0 0 20px rgba(0,0,0,.4);
   }
   .book-cardinal::after{
     content:"";
     position:absolute;
-    z-index:2;
+    z-index:1;
     inset:0;
     pointer-events:none;
     background:
-      linear-gradient(90deg, rgba(0,0,0,.28), transparent 12%, transparent 86%, rgba(0,0,0,.18)),
-      linear-gradient(180deg, rgba(255,223,146,.07), transparent 24%, transparent 80%, rgba(0,0,0,.22));
+      linear-gradient(90deg, rgba(0,0,0,.3), transparent 12%, transparent 86%, rgba(0,0,0,.2)),
+      linear-gradient(180deg, rgba(255,223,146,.06), transparent 26%, transparent 78%, rgba(0,0,0,.26));
   }
-  .book-cardinal img{
-    display:block;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:left center;
+  .cardinal-medallion{
+    position:relative;
+    z-index:2;
+    width:66px;
+    height:66px;
+    flex:0 0 auto;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.6));
+  }
+  .cardinal-title{
+    position:relative;
+    z-index:2;
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    font-size:15px;
+    line-height:1.5;
+    letter-spacing:.05em;
+    text-align:center;
+    background:linear-gradient(180deg, var(--gold-bright), var(--gold) 65%, var(--gold-dim));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .cardinal-sub{
+    position:relative;
+    z-index:2;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:11.5px;
+    line-height:1.5;
+    letter-spacing:.04em;
+    text-align:center;
+    color:var(--ink-dim);
+    opacity:.88;
   }
   .cardinal-number{
     position:absolute;
@@ -442,12 +477,15 @@
       -9px 5px 14px rgba(0,0,0,.44),
       16px 24px 32px rgba(0,0,0,.62),
       0 0 0 1px rgba(233,205,134,.24);
-    filter:saturate(1) brightness(1.02) sepia(.03);
+    filter:saturate(1) brightness(1.02);
   }
   .book-cardinal:focus-visible{outline:2px solid var(--gold-bright); outline-offset:4px;}
   @media (max-width:640px){
     .slot--cardinal{width:205px;}
-    .book-cardinal{width:205px; height:242px;}
+    .book-cardinal{width:205px; height:242px; padding:20px 16px 16px;}
+    .cardinal-medallion{width:54px; height:54px;}
+    .cardinal-title{font-size:13px;}
+    .cardinal-sub{font-size:10.5px;}
   }
 
   /* ---------- Αγγλικό τμήμα ---------- */
@@ -1250,10 +1288,26 @@
         <!-- 0020 · Οι Τέσσερις Θεμελιώδεις Αρετές -->
         <div class="slot slot--cardinal">
           <a class="book-cardinal" target="_blank" rel="noopener"
-             href="library/0020-tesseris-themeliodeis-aretes.pdf"
-             aria-label="Άνοιγμα: Οι Τέσσερις Θεμελιώδεις Αρετές">
-            <img src="assets/cardinal-virtues-book.webp" width="340" height="402"
-                 alt="Οι Τέσσερις Θεμελιώδεις Αρετές — παλαιό δερματόδετο βιβλίο" loading="lazy" decoding="async">
+             href="library/0020-tesseris-themeliodeis-aretes.pdf">
+            <svg class="cardinal-medallion" viewBox="0 0 100 100" aria-hidden="true">
+              <defs>
+                <linearGradient id="cardGold" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#f2dfa0"/>
+                  <stop offset="1" stop-color="#b3893f"/>
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="44" fill="none" stroke="url(#cardGold)" stroke-width="1.1" opacity=".8"/>
+              <circle cx="50" cy="50" r="34" fill="none" stroke="url(#cardGold)" stroke-width=".6" opacity=".55"/>
+              <g fill="url(#cardGold)">
+                <path d="M50 50 L44.5 21 L50 7 L55.5 21 Z"/>
+                <path d="M50 50 L44.5 21 L50 7 L55.5 21 Z" transform="rotate(90 50 50)"/>
+                <path d="M50 50 L44.5 21 L50 7 L55.5 21 Z" transform="rotate(180 50 50)"/>
+                <path d="M50 50 L44.5 21 L50 7 L55.5 21 Z" transform="rotate(270 50 50)"/>
+              </g>
+              <circle cx="50" cy="50" r="6.5" fill="#1c1108" stroke="url(#cardGold)" stroke-width="1.2"/>
+            </svg>
+            <span class="cardinal-title">Οι Τέσσερις<br>Θεμελιώδεις<br>Αρετές</span>
+            <span class="cardinal-sub">Φρόνηση · Ανδρεία<br>Εγκράτεια · Δικαιοσύνη</span>
             <span class="cardinal-number">Αρ. 0020</span>
           </a>
           <div class="flyout">
