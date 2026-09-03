@@ -1,0 +1,155 @@
+from pathlib import Path
+
+p = Path('index.html')
+s = p.read_text(encoding='utf-8')
+
+# Header portrait beside title and intro
+css_anchor = "  .lede em{color:var(--parchment); font-style:italic;}\n"
+hero_css = r'''
+
+  /* ---------- Grand Master portrait in the opening area ---------- */
+  .hero-copy-photo{
+    position:relative;
+    z-index:1;
+    max-width:1020px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 245px;
+    gap:46px;
+    align-items:center;
+  }
+  .hero-copy{min-width:0; text-align:left;}
+  .hero-copy .kicker,
+  .hero-copy h1,
+  .hero-copy .lede{text-align:left;}
+  .hero-copy .lede{max-width:620px; margin:0;}
+  .grand-master-card{
+    margin:0;
+    width:245px;
+    justify-self:end;
+    text-align:center;
+  }
+  .grand-master-photo-wrap{
+    position:relative;
+    width:100%;
+    height:265px;
+    overflow:hidden;
+    border-radius:12px;
+    background:
+      radial-gradient(ellipse at 50% 38%, rgba(201,162,75,0.11), transparent 58%),
+      var(--bg-deep);
+    box-shadow:0 18px 36px -22px rgba(0,0,0,.92);
+  }
+  .grand-master-photo-wrap::after{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    pointer-events:none;
+    border-radius:inherit;
+    box-shadow:
+      inset 0 0 34px 13px var(--bg-deep),
+      inset 0 -28px 34px -12px var(--bg-deep);
+  }
+  .grand-master-photo{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 16%;
+    -webkit-mask-image:radial-gradient(ellipse 92% 96% at 50% 43%, #000 68%, transparent 100%);
+    mask-image:radial-gradient(ellipse 92% 96% at 50% 43%, #000 68%, transparent 100%);
+  }
+  .grand-master-caption{
+    margin-top:9px;
+    font-family:'Cormorant Garamond', serif;
+    line-height:1.25;
+    text-shadow:0 2px 8px rgba(0,0,0,.8);
+  }
+  .grand-master-name{
+    display:block;
+    color:var(--gold-bright);
+    font-size:14px;
+    font-weight:600;
+  }
+  .grand-master-titles{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:3px;
+    color:var(--parchment);
+    font-size:13px;
+    font-style:italic;
+  }
+  @media (max-width:780px){
+    .hero-copy-photo{grid-template-columns:1fr; gap:28px;}
+    .hero-copy,
+    .hero-copy .kicker,
+    .hero-copy h1,
+    .hero-copy .lede{text-align:center;}
+    .hero-copy .lede{margin:0 auto;}
+    .grand-master-card{justify-self:center; width:min(245px, 74vw);}
+  }
+'''
+if '.hero-copy-photo{' not in s:
+    if css_anchor not in s:
+        raise SystemExit('Header CSS anchor not found')
+    s = s.replace(css_anchor, css_anchor + hero_css, 1)
+
+old_header = '''  <p class="kicker">Εθνική Μεγάλη Στοά της Ελλάδος</p>
+  <h1>Τεκτονικές Ομιλίες</h1>
+  <p class="lede">Μια ήσυχη αίθουσα μελέτης, όπου φυλάσσονται <em>εργασίες και ομιλίες αδελφών</em> αφιερωμένες στα σύμβολα, την ιστορία και τη φιλοσοφία του Τεκτονισμού. Αγγίξτε έναν τόμο για να τον ανασύρετε από το ράφι.</p>'''
+new_header = '''  <div class="hero-copy-photo">
+    <div class="hero-copy">
+      <p class="kicker">Εθνική Μεγάλη Στοά της Ελλάδος</p>
+      <h1>Τεκτονικές Ομιλίες</h1>
+      <p class="lede">Μια ήσυχη αίθουσα μελέτης, όπου φυλάσσονται <em>εργασίες και ομιλίες αδελφών</em> αφιερωμένες στα σύμβολα, την ιστορία και τη φιλοσοφία του Τεκτονισμού. Αγγίξτε έναν τόμο για να τον ανασύρετε από το ράφι.</p>
+    </div>
+    <figure class="grand-master-card">
+      <div class="grand-master-photo-wrap">
+        <img class="grand-master-photo"
+             src="https://nglgreece.org/wp-content/uploads/2026/04/benetatos-683x1024.jpeg"
+             alt="Επίσημη φωτογραφία Μεγάλου Διδασκάλου"
+             loading="eager" decoding="async">
+      </div>
+      <figcaption class="grand-master-caption">
+        <span class="grand-master-name">Σεβτ. Αδ. Ιωάννης Μπενετάτος , MWBro Ioannis Benetatos</span>
+        <span class="grand-master-titles"><span>Μέγας Διδάσκαλος</span><span>Grand Master</span></span>
+      </figcaption>
+    </figure>
+  </div>'''
+if 'class="grand-master-card"' not in s:
+    if old_header not in s:
+        raise SystemExit('Header text block not found')
+    s = s.replace(old_header, new_header, 1)
+
+# Previously requested framed building image on Governance shelf
+gov_css_anchor = "  .candelabrum img{display:block; width:100%; height:auto;}\n"
+gov_css = r'''
+
+  /* ---------- Framed building on Governance and Structure shelf ---------- */
+  .governance-frame{
+    flex:0 0 auto;
+    align-self:flex-end;
+    width:min(205px, 24vw);
+    margin:0 8px 0 20px;
+    transform:rotate(-0.5deg) translateY(2px);
+    transform-origin:bottom center;
+    filter:drop-shadow(0 14px 16px rgba(0,0,0,0.62));
+    pointer-events:none;
+  }
+  .governance-frame img{display:block; width:100%; height:auto; border-radius:2px;}
+  @media (max-width:900px){.governance-frame{width:170px; margin-left:10px;}}
+'''
+if '.governance-frame{' not in s:
+    if gov_css_anchor not in s:
+        raise SystemExit('Governance CSS anchor not found')
+    s = s.replace(gov_css_anchor, gov_css_anchor + gov_css, 1)
+
+gov_label = '        <div class="shelf-label"><span class="lead">Governance</span><span>and Structure</span></div>'
+gov_frame = '''        <div class="governance-frame" aria-hidden="true">\n          <img src="assets/governance-frame.jpg" width="520" height="633" alt="" decoding="async">\n        </div>\n'''
+if 'src="assets/governance-frame.jpg"' not in s:
+    if gov_label not in s:
+        raise SystemExit('Governance shelf label not found')
+    s = s.replace(gov_label, gov_frame + gov_label, 1)
+
+p.write_text(s, encoding='utf-8')
