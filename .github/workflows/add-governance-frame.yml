@@ -18,15 +18,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Update page and image assets
+      - name: Update library presentation
         run: python3 scripts/update_library_presentation.py
 
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html assets/
+          git add index.html assets/ library/
           if ! git diff --cached --quiet; then
-            git commit -m "Fix Grand Master portrait and governance frame"
+            git commit -m "Update library presentation"
             git push
           fi
