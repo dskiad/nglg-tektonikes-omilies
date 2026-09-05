@@ -741,6 +741,42 @@
     color:var(--parchment);
     line-height:1.3;
   }
+  .flyout--wide{width:288px;}
+  /* ο πρώτος τόμος του ραφιού: η κάρτα αγκυρώνεται αριστερά για να μη βγει εκτός οθόνης */
+  .slot:first-child .flyout--wide{left:0; transform:translate(0, 6px);}
+  .slot:first-child:hover .flyout--wide,
+  .slot:first-child:focus-within .flyout--wide{transform:translate(0, 0);}
+  .slot:first-child .flyout--wide::after{left:22px; transform:none;}
+  .flyout-caps{
+    margin:0 0 10px;
+    padding-top:9px;
+    border-top:1px solid var(--rule);
+    font-family:'Cormorant Garamond', serif;
+    font-size:11px;
+    letter-spacing:.055em;
+    line-height:1.55;
+    color:var(--gold);
+  }
+  .shelf-ribbon{
+    display:flex; align-items:center; gap:16px;
+    margin:11px 0 0;
+    padding:0 4px;
+  }
+  .shelf-ribbon::before, .shelf-ribbon::after{
+    content:""; flex:1 1 auto; height:1px;
+    background:linear-gradient(90deg, transparent, rgba(201,162,75,.45), transparent);
+  }
+  .shelf-ribbon span{
+    flex:0 0 auto;
+    font-family:'Cormorant Garamond', serif;
+    font-size:11.5px;
+    letter-spacing:.16em;
+    color:var(--gold-dim);
+    white-space:nowrap;
+  }
+  @media (max-width:720px){
+    .shelf-ribbon span{white-space:normal; text-align:center; font-size:10.5px; letter-spacing:.1em;}
+  }
   .flyout-note{
     margin:0 0 10px;
     font-family:'Cormorant Garamond', serif;
@@ -1102,7 +1138,7 @@
             <span class="spine-num issue">Τεύχος 1</span>
             <span class="spine-title">Η Ιερή Γλώσσα Των Συμβόλων</span>
           </a>
-          <div class="flyout"><h4>Η Ιερή Γλώσσα Των Συμβόλων</h4><p class="flyout-note">Τεύχος 1 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
+          <div class="flyout flyout--wide"><h4>Η Ιερή Γλώσσα Των Συμβόλων</h4><p class="flyout-note">Τεύχος 1 · Τόμος Αρ. 0001</p><p class="flyout-caps">Ο ΤΟΜΟΣ ΠΕΡΙΕΧΕΙ 14 ΤΕΥΧΗ ΣΕ ΕΝΑ ΕΝΙΑΙΟ ΑΡΧΕΙΟ PDF. ΜΠΟΡΕΙΤΕ ΝΑ ΑΚΟΥΣΕΤΕ ΤΟ ΚΑΘΕ ΤΕΥΧΟΣ ΞΕΧΩΡΙΣΤΑ ΣΤΟ ΤΜΗΜΑ PODCAST ΧΑΜΗΛΑ ΣΤΗ ΣΕΛΙΔΑ.</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
         </div>
         <!-- 0001 · Τεύχος 2 -->
         <div class="slot">
@@ -1224,6 +1260,7 @@
         <div class="shelf-label"><span class="lead">The Holy</span><span>Symbols</span></div>
       </div>
       <div class="shelf-plank"></div>
+      <p class="shelf-ribbon"><span>ΕΝΑΣ ΤΟΜΟΣ · ΔΕΚΑΤΕΣΣΕΡΑ ΤΕΥΧΗ · ΟΛΕΣ ΟΙ ΡΑΧΕΣ ΑΝΟΙΓΟΥΝ ΤΟ ΙΔΙΟ PDF</span></p>
     </div>
   </section>
 
