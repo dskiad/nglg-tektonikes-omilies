@@ -757,6 +757,66 @@
     line-height:1.55;
     color:var(--gold);
   }
+  .volume-plate{
+    flex:0 1 auto;
+    align-self:flex-end;
+    max-width:660px;
+    margin:0 0 4px 30px;
+    padding:16px 22px 15px;
+    border-radius:4px;
+    background:linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.10));
+    box-shadow:inset 0 0 0 1px rgba(201,162,75,0.30), inset 0 0 0 3px rgba(0,0,0,0.25),
+               inset 0 0 0 4px rgba(201,162,75,0.16), 0 10px 20px -14px rgba(0,0,0,0.8);
+  }
+  .vp-title{
+    margin:0 0 12px;
+    padding-bottom:9px;
+    border-bottom:1px solid var(--rule);
+    font-family:'Cinzel', serif;
+    font-size:14px;
+    letter-spacing:.10em;
+    color:var(--gold-bright);
+    text-shadow:0 1px 0 #6a5020, 0 2px 4px rgba(0,0,0,0.6);
+  }
+  .vp-list{
+    list-style:none; margin:0; padding:0;
+    display:grid; grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:6px 26px;
+  }
+  .vp-list li{
+    display:flex; align-items:baseline; gap:8px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:13.5px;
+    color:var(--ink);
+    line-height:1.35;
+  }
+  .vp-n{
+    flex:0 0 auto;
+    min-width:16px;
+    font-style:italic;
+    font-size:11.5px;
+    color:var(--gold);
+    text-align:right;
+  }
+  .vp-foot{
+    margin:13px 0 0;
+    padding-top:9px;
+    border-top:1px solid var(--rule);
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:12.5px;
+    color:var(--gold-dim);
+  }
+  @media (max-width:900px){
+    .volume-plate{margin-left:18px; padding:13px 15px;}
+    .vp-list{grid-template-columns:repeat(2, minmax(0,1fr)); gap:5px 16px;}
+    .vp-list li{font-size:12.5px;}
+  }
+  @media (max-width:620px){
+    .wing-issues .row{flex-wrap:wrap;}
+    .volume-plate{flex:1 1 100%; margin:14px 0 4px; max-width:none;}
+    .vp-list{grid-template-columns:1fr;}
+  }
   .shelf-ribbon{
     display:flex; align-items:center; gap:16px;
     margin:11px 0 0;
@@ -1127,140 +1187,42 @@
     <div class="wing-head">
       <span class="wing-title" id="w0">Η Ιερή Γλώσσα Των Συμβόλων</span>
       <span class="wing-thread"></span>
-      <span class="wing-count">14 τεύχη</span>
+      <span class="wing-count">1 τόμος · 14 τεύχη</span>
     </div>
     <div class="case">
       <div class="row">
-        <!-- 0001 · Τεύχος 1 -->
+        <!-- 0001 · ΤΟΜΟΣ 1 -->
         <div class="slot">
           <a class="book" style="--tone:var(--oxblood)" target="_blank" rel="noopener"
              href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 1</span>
+            <span class="spine-num issue">ΤΟΜΟΣ 1</span>
             <span class="spine-title">Η Ιερή Γλώσσα Των Συμβόλων</span>
           </a>
-          <div class="flyout flyout--wide"><h4>Η Ιερή Γλώσσα Των Συμβόλων</h4><p class="flyout-note">Τεύχος 1 · Τόμος Αρ. 0001</p><p class="flyout-caps">Ο ΤΟΜΟΣ ΠΕΡΙΕΧΕΙ 14 ΤΕΥΧΗ ΣΕ ΕΝΑ ΕΝΙΑΙΟ ΑΡΧΕΙΟ PDF. ΜΠΟΡΕΙΤΕ ΝΑ ΑΚΟΥΣΕΤΕ ΤΟ ΚΑΘΕ ΤΕΥΧΟΣ ΞΕΧΩΡΙΣΤΑ ΣΤΟ ΤΜΗΜΑ PODCAST ΧΑΜΗΛΑ ΣΤΗ ΣΕΛΙΔΑ.</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
+          <div class="flyout flyout--wide"><h4>Η Ιερή Γλώσσα Των Συμβόλων</h4><p class="flyout-note">Τόμος 1 · Αρ. 0001</p><p class="flyout-caps">Ο ΤΟΜΟΣ ΠΕΡΙΕΧΕΙ 14 ΤΕΥΧΗ ΣΕ ΕΝΑ ΕΝΙΑΙΟ ΑΡΧΕΙΟ PDF. ΜΠΟΡΕΙΤΕ ΝΑ ΑΚΟΥΣΕΤΕ ΤΟ ΚΑΘΕ ΤΕΥΧΟΣ ΞΕΧΩΡΙΣΤΑ ΣΤΟ ΤΜΗΜΑ PODCAST ΧΑΜΗΛΑ ΣΤΗ ΣΕΛΙΔΑ.</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
         </div>
-        <!-- 0001 · Τεύχος 2 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--forest)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 2</span>
-            <span class="spine-title">Ο Ακατέργαστος Λίθος</span>
-          </a>
-          <div class="flyout"><h4>Ο Ακατέργαστος Λίθος</h4><p class="flyout-note">Τεύχος 2 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 3 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--navy)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 3</span>
-            <span class="spine-title">Ο Λείος Λίθος</span>
-          </a>
-          <div class="flyout"><h4>Ο Λείος Λίθος</h4><p class="flyout-note">Τεύχος 3 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 4 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--plum)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 4</span>
-            <span class="spine-title">Ο Γνώμονας</span>
-          </a>
-          <div class="flyout"><h4>Ο Γνώμονας</h4><p class="flyout-note">Τεύχος 4 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 5 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--umber)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 5</span>
-            <span class="spine-title">Ο Διαβήτης</span>
-          </a>
-          <div class="flyout"><h4>Ο Διαβήτης</h4><p class="flyout-note">Τεύχος 5 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 6 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--oxblood)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 6</span>
-            <span class="spine-title">Η Σφύρα Και Η Σμίλη</span>
-          </a>
-          <div class="flyout"><h4>Η Σφύρα Και Η Σμίλη</h4><p class="flyout-note">Τεύχος 6 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 7 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--forest)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 7</span>
-            <span class="spine-title">Οι Δύο Στήλες: Ιαχίν Και Βοόζ</span>
-          </a>
-          <div class="flyout"><h4>Οι Δύο Στήλες: Ιαχίν Και Βοόζ</h4><p class="flyout-note">Τεύχος 7 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 8 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--navy)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 8</span>
-            <span class="spine-title">Το Μωσαϊκό Δάπεδο</span>
-          </a>
-          <div class="flyout"><h4>Το Μωσαϊκό Δάπεδο</h4><p class="flyout-note">Τεύχος 8 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 9 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--plum)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 9</span>
-            <span class="spine-title">Ο Φλεγόμενος Αστήρ</span>
-          </a>
-          <div class="flyout"><h4>Ο Φλεγόμενος Αστήρ</h4><p class="flyout-note">Τεύχος 9 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 10 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--umber)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 10</span>
-            <span class="spine-title">Το Γράμμα G</span>
-          </a>
-          <div class="flyout"><h4>Το Γράμμα G</h4><p class="flyout-note">Τεύχος 10 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 11 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--oxblood)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 11</span>
-            <span class="spine-title">Το 47ο Πρόβλημα Του Ευκλείδη</span>
-          </a>
-          <div class="flyout"><h4>Το 47ο Πρόβλημα Του Ευκλείδη</h4><p class="flyout-note">Τεύχος 11 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 12 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--forest)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 12</span>
-            <span class="spine-title">Ο Ναός Του Σολομώντα</span>
-          </a>
-          <div class="flyout"><h4>Ο Ναός Του Σολομώντα</h4><p class="flyout-note">Τεύχος 12 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 13 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--navy)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 13</span>
-            <span class="spine-title">Το Φως</span>
-          </a>
-          <div class="flyout"><h4>Το Φως</h4><p class="flyout-note">Τεύχος 13 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
-        </div>
-        <!-- 0001 · Τεύχος 14 -->
-        <div class="slot">
-          <a class="book" style="--tone:var(--plum)" target="_blank" rel="noopener"
-             href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf">
-            <span class="spine-num issue">Τεύχος 14</span>
-            <span class="spine-title">Η Κλίμακα Του Ιακώβ</span>
-          </a>
-          <div class="flyout"><h4>Η Κλίμακα Του Ιακώβ</h4><p class="flyout-note">Τεύχος 14 · Τόμος Αρ. 0001</p><a href="https://nglgreece.org/wp-content/uploads/2026/08/0001-Η-ΙΕΡΗ-ΓΛΩΣΣΑ-ΤΩΝ-ΣΥΜΒΟΛΩΝ.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
+        <div class="volume-plate">
+          <p class="vp-title">Ο Τόμος 1 περιέχει τα Τεύχη 2 – 14</p>
+          <ul class="vp-list">
+            <li><span class="vp-n">2</span>Ο Ακατέργαστος Λίθος</li>
+            <li><span class="vp-n">3</span>Ο Λείος Λίθος</li>
+            <li><span class="vp-n">4</span>Ο Γνώμονας</li>
+            <li><span class="vp-n">5</span>Ο Διαβήτης</li>
+            <li><span class="vp-n">6</span>Η Σφύρα Και Η Σμίλη</li>
+            <li><span class="vp-n">7</span>Οι Δύο Στήλες: Ιαχίν Και Βοόζ</li>
+            <li><span class="vp-n">8</span>Το Μωσαϊκό Δάπεδο</li>
+            <li><span class="vp-n">9</span>Ο Φλεγόμενος Αστήρ</li>
+            <li><span class="vp-n">10</span>Το Γράμμα G</li>
+            <li><span class="vp-n">11</span>Το 47ο Πρόβλημα Του Ευκλείδη</li>
+            <li><span class="vp-n">12</span>Ο Ναός Του Σολομώντα</li>
+            <li><span class="vp-n">13</span>Το Φως</li>
+            <li><span class="vp-n">14</span>Η Κλίμακα Του Ιακώβ</li>
+          </ul>
+          <p class="vp-foot">Ένα ενιαίο αρχείο PDF · κάθε τεύχος ακούγεται ξεχωριστά στο τμήμα podcast, χαμηλά στη σελίδα</p>
         </div>
         <div class="shelf-label"><span class="lead">The Holy</span><span>Symbols</span></div>
       </div>
       <div class="shelf-plank"></div>
-      <p class="shelf-ribbon"><span>ΕΝΑΣ ΤΟΜΟΣ · ΔΕΚΑΤΕΣΣΕΡΑ ΤΕΥΧΗ · ΟΛΕΣ ΟΙ ΡΑΧΕΣ ΑΝΟΙΓΟΥΝ ΤΟ ΙΔΙΟ PDF</span></p>
+      <p class="shelf-ribbon"><span>ΕΝΑΣ ΤΟΜΟΣ · ΔΕΚΑΤΕΣΣΕΡΑ ΤΕΥΧΗ · ΕΝΑ ΕΝΙΑΙΟ ΑΡΧΕΙΟ PDF</span></p>
     </div>
   </section>
 
